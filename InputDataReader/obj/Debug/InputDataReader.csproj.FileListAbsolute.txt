@@ -1,0 +1,4 @@
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\InputDataReader\bin\Debug\InputDataReader.exe
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\InputDataReader\bin\Debug\InputDataReader.pdb
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\InputDataReader\obj\Debug\InputDataReader.exe
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\InputDataReader\obj\Debug\InputDataReader.pdb

@@ -1,0 +1,13 @@
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\Repository\bin\Debug\Repository.dll
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\Repository\bin\Debug\Repository.pdb
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\Repository\bin\Debug\WebDriver.dll
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\Repository\bin\Debug\WebDriverFramework.dll
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\Repository\bin\Debug\log4net.dll
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\Repository\bin\Debug\WebDriver.Support.dll
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\Repository\bin\Debug\WebDriverFramework.pdb
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\Repository\bin\Debug\WebDriver.xml
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\Repository\bin\Debug\log4net.xml
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\Repository\bin\Debug\WebDriver.Support.xml
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\Repository\obj\Debug\Repository.csprojResolveAssemblyReference.cache
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\Repository\obj\Debug\Repository.dll
+D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\Repository\obj\Debug\Repository.pdb
