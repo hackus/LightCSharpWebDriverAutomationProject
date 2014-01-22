@@ -1,6 +1,0 @@
-D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\ExceptionHandler\bin\Debug\ExceptionHandler.pdb
-D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\ExceptionHandler\bin\Debug\log4net.dll
-D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\ExceptionHandler\bin\Debug\log4net.xml
-D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\ExceptionHandler\obj\Debug\ExceptionHandler.pdb
-D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\ExceptionHandler\bin\Debug\ExceptionHandler.exe
-D:\Projects\Selenium\C#\TestFramework\UnitTestFramework\ExceptionHandler\obj\Debug\ExceptionHandler.exe
