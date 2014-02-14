@@ -1,4 +1,4 @@
-LightCSharpWebDriverAutomationProject
+Light C# WebDriver Automation Framework
 =====================================
 
 Authors:<br> 
