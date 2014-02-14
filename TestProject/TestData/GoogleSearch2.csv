@@ -1,0 +1,3 @@
+﻿StepNumber,Url,Text,RemoteBrowser
+1,http://www.google.com ,he he he,"browserName=firefox,version=26.0,platform=LINUX"
+2,http://www.google.com ,test1,"browserName=internet explorer,version=IE11,platform=WINDOWS"

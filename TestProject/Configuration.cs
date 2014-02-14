@@ -1,15 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WebDriverFramework;
 
 namespace TestProject
 {
     class Configuration
     {
+        public static TestContext context;
+        public static string scrnshotErrorFolder = @"\ScreenshotsErrors\";
+        public static string scrnshotFatalFolder = @"\ScreenshotsFatals\";
+
         public static Environments getEnvironment()
         {
             Environments env = (Environments)Enum.Parse(typeof(Environments), ConfigurationManager.AppSettings["Environment"]);
@@ -18,8 +19,19 @@ namespace TestProject
 
         public static DriverType getBrowser()
         {
-            DriverType browser = (DriverType)Enum.Parse(typeof(DriverType), ConfigurationManager.AppSettings["Browser"]);
-            return browser;
+            if (!ConfigurationManager.AppSettings["Browser"].Equals(""))
+            {
+                DriverType browser = (DriverType)Enum.Parse(typeof(DriverType), ConfigurationManager.AppSettings["Browser"]);
+                return browser;
+            }
+            return DriverType.Remote;
+        }
+
+
+        public static string getRemoteDriverHub()
+        {
+            string hubHost = ConfigurationManager.AppSettings["RemoteDriverHub"];
+            return hubHost;
         }
     }
 }

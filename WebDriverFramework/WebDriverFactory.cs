@@ -1,34 +1,24 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WebDriverFramework
 {
     public class WebDriverFactory
     {
-        public static IWebDriver GetDriver(DriverType type, String uri="http://127.0.0.1")
+        public static IWebDriver GetDriver(DriverType type)
         {
             switch(type)
             {
                 case DriverType.Firefox: 
                     return getFirefoxDriver();
-                    break;
                 case DriverType.Chrome:
                     return getChromeDriver();
-                    break;
                 case DriverType.IE:
-                    return getIEDriver();
-                    break;
-                case DriverType.Remote:
-                    return getRemoteDriver(new Uri(uri));
-                    break;
+                    return getIEDriver();               
             }
 
             return null;
@@ -49,9 +39,48 @@ namespace WebDriverFramework
             return new InternetExplorerDriver();
         }
 
-        public static IWebDriver getRemoteDriver(Uri uri)
+        public static ScreenShotRemoteWebDriver GetDriver(BrowserCapabilities capabilities)
         {
-            return new RemoteWebDriver(uri, new DesiredCapabilities());
+            DesiredCapabilities browser = null;
+            if (capabilities.browserName == null)
+                capabilities.browserName = "firefox";
+            if (capabilities.Platform == null)
+                capabilities.Platform = "WINDOWS";
+
+            switch (capabilities.browserName.ToUpper())
+            {
+                case "FIREFOX":
+                    browser = DesiredCapabilities.Firefox();
+                    break;
+                case "CHROME":
+                    browser = DesiredCapabilities.Chrome();
+                    break;
+                case "INTERNET EXPLORER":
+                    //browser = DesiredCapabilities.InternetExplorer();
+                    //browser.SetCapability(CapabilityType.BrowserName, "iexplorer");                    
+                    //browser.SetCapability("seleniumProtocol", "WebDriver");                    
+                    
+                    browser = new DesiredCapabilities();
+                    browser.SetCapability(CapabilityType.BrowserName, "internet explorer");
+                    break;
+            }
+
+            switch (capabilities.Platform.ToUpper())
+            {
+                case "LINUX":
+                    browser.SetCapability(CapabilityType.Platform, new Platform(PlatformType.Linux));
+                    break;
+                case "WINDOWS":
+                    browser.SetCapability(CapabilityType.Platform, new Platform(PlatformType.Windows));
+                    break;                     
+            }
+
+            if (capabilities.Version != null)
+                browser.SetCapability(CapabilityType.Version, capabilities.Version);
+                        
+            //browser.SetCapability(CapabilityType.IsJavaScriptEnabled, capabilities.IsJavaScriptEnabled);
+
+            return new ScreenShotRemoteWebDriver(new Uri(capabilities.hubUri), browser);
         }
     }
 }

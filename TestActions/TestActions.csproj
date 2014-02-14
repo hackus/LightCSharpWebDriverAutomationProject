@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -46,14 +50,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseAction.cs" />
-    <Compile Include="SearchWordInGoogleAction.cs" />
+    <Compile Include="ActionBase.cs" />
+    <Compile Include="Google\GoogleSearchValidateAction.cs" />
+    <Compile Include="Google\GoogleSearchAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InputDataReader\InputDataReader.csproj">
       <Project>{a6ff77d9-d6b9-44f7-b638-3010f5706cb5}</Project>
       <Name>InputDataReader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyLogger\MyLogger.csproj">
+      <Project>{8fc7ef77-d22a-4746-b192-9e43f8113623}</Project>
+      <Name>MyLogger</Name>
     </ProjectReference>
     <ProjectReference Include="..\Repository\Repository.csproj">
       <Project>{15bc228f-63ba-4805-a738-9bf6dd41dbaf}</Project>

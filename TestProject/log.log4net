@@ -30,33 +30,52 @@
   This stores information in the mylogfile.txt file.  It only captures log events
   that contain the key word test or error.
   -->
-    <appender name="RollingFileAppender" type="log4net.Appender.RollingFileAppender">
-      <bufferSize value="1" />
-      <file value="mylogfileFromLog.txt"/>
-      <appendToFile value="false"/>
-      <rollingStyle value="Size"/>
-      <maxSizeRollBackups value="5"/>
-      <maximumFileSize value="10MB"/>
-      <staticLogFileName value="true"/>
-      <!--<filter type="log4net.Filter.StringMatchFilter">
-        <stringToMatch value="test"/>
-      </filter>
-      <filter type="log4net.Filter.StringMatchFilter">
-        <stringToMatch value="error"/>
-      </filter>
-      <filter type="log4net.Filter.DenyAllFilter"/>-->
-
-      <!--<layout type="log4net.Layout.XmlLayoutSchemaLog4j">
-        <locationInfo value="true" />
-      </layout>-->
-      
-      <layout type="log4net.Layout.PatternLayout">
-        <conversionPattern value="%date [%thread] %level %logger - %message%newline%exception"/>
-      </layout>
-    </appender>
+   
+	  <appender name="RollingLogFileAppender" type="log4net.Appender.RollingFileAppender">
+		  <file value="log.txt" />
+		  <appendToFile value="false" />
+		  <rollingStyle value="Size" />
+		  <maxSizeRollBackups value="10" />
+		  <maximumFileSize value="1MB" />
+		  <staticLogFileName value="true" />
+		  <layout type="log4net.Layout.PatternLayout">
+			  <conversionPattern value="%-5p %5rms %-22.22c{1} %-18.18M - %m%n" />
+		  </layout>
+		  <threshold value="INFO"/>
+	  </appender>
+	  
+	  
+	  <appender name="ColoredFileAppender" type="log4net.Appender.RollingFileAppender" >
+		  <file value="log.html" />
+		  <appendToFile value="false" />
+		  <layout type="log4net.Layout.PatternLayout">
+			  <conversionPattern value="%CC" />
+			  <converter>
+				  <name value="CC" />
+				  <type value="MyLogger.ColoredMessageConverter, MyLogger" />
+			  </converter>
+		  </layout>
+	  </appender>
+	  <appender name="ColoredFileAppenderErrors" type="log4net.Appender.RollingFileAppender" >
+		  <file value="logErrors.html" />
+		  <appendToFile value="false" />
+		  <layout type="log4net.Layout.PatternLayout">
+			  <conversionPattern value="%CC" />
+			  <converter>
+				  <name value="CC" />
+				  <type value="MyLogger.ColoredMessageConverterErrors, MyLogger" />
+			  </converter>
+		  </layout>
+	  </appender>
+	  
+	  
+	  
+	  
     <root>
       <level value="INFO"/>
-      <appender-ref ref="RollingFileAppender"/>
+		<appender-ref ref="RollingLogFileAppender"/>
+		<appender-ref ref="ColoredFileAppender"/>
+		<appender-ref ref="ColoredFileAppenderErrors"/>
     </root>
     <!--<logger name="Log4NetTest.OtherClass">
       <level value="INFO"/>

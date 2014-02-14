@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace WebDriverFramework
 {
     public enum ElementFindType
@@ -17,14 +12,13 @@ namespace WebDriverFramework
     {
         Firefox, 
         Chrome, 
-        IE, 
+        IE,
         Remote
     };
 
     public enum Environments
     {
         dev1,
-        test1, 
-        dev2
+        test1        
     };
 }

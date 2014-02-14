@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 
 namespace InputDataReader
 {
-    public abstract class InputBase<T> where T : InputBase<T>
+    public abstract class InputBase
     {
-        public static T ReadJsonFile(String filePath)
+        public T ReadJsonFile<T>(String filePath) where T : InputBase
         {
             String filecontents;
 
@@ -24,7 +21,7 @@ namespace InputDataReader
             return jsonserializer.Deserialize<T>(filecontents);
         }
 
-        public static T ReadJsonFile()        
+        public T ReadJsonFile<T>() where T : InputBase      
         {
             String filecontents;
 
@@ -38,13 +35,13 @@ namespace InputDataReader
             return jsonserializer.Deserialize<T>(filecontents);
         }
 
-        public static void WriteJsonFile(T playerData)        
+        public void WriteJsonFile<T>(T playerData) where T : InputBase     
         {            
             StringBuilder sb = new StringBuilder();
 
             JavaScriptSerializer jsonserializer = new JavaScriptSerializer();
 
-            playerData.GenerateTestData();
+            //playerData.GenerateTestData();
 
             jsonserializer.Serialize(playerData, sb);
 
@@ -53,7 +50,7 @@ namespace InputDataReader
             sw.Close();
         }
 
-        public static void WriteJsonFile(String filePath, T playerData)
+        public void WriteJsonFile<T>(String filePath, T playerData) where T : InputBase
         {
             StringBuilder sb = new StringBuilder();
 
@@ -66,6 +63,6 @@ namespace InputDataReader
             sw.Close();
         }
 
-        public abstract T GenerateTestData();        
+        public abstract InputBase GenerateTestData();        
     }
 }

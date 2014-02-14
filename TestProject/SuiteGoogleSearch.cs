@@ -42,7 +42,7 @@ namespace TestProject
         }
 
         //const string dataDriver = "System.Data.OleDb";
-        //const string connectionStr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=matrix.xlsx;Extended Properties=\"Excel 12.0 Xml;HDR=YES\";";
+        //const string connectionStr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=TestData\\ConvertNumber.csv;DeExtended Properties=\"Excel 12.0 Xml;HDR=YES\";";
 
                 
         
@@ -50,6 +50,7 @@ namespace TestProject
         //[DeploymentItem("matrix.xlsx")]
         //[DataSource("MyExcelDataSource")]      
         [TestMethod, TestCategory("Google")]
+        //[DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "TestData\\ConvertNumber.csv", "ConvertNumber#csv", DataAccessMethod.Sequential)]
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "TestData\\ConvertNumber.csv", "ConvertNumber#csv", DataAccessMethod.Sequential)]
         public void TestConvertNumber()
         {
